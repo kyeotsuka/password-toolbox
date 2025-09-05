@@ -1,8 +1,11 @@
 from password import Password
+from password_generator import Generator
 from password_checker import Checker
 
 def main():
-    my_password = Password("testD!/243")
+    generated_password = Generator()
+    my_password = Password(generated_password.generate_password(15))
+    print(generated_password)
     checker = Checker(my_password)
     print(my_password)
     print(checker)  

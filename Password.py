@@ -1,5 +1,4 @@
 from collections import Counter
-from password_checker import Checker
 import string
 
 class Password:

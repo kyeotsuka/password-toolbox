@@ -1,5 +1,5 @@
 import string, secrets
-from typing import List
+# from typing import List
 
 def load_word_list(filepath: str) -> list[str]:
     try:
@@ -12,16 +12,16 @@ def load_word_list(filepath: str) -> list[str]:
         return []
 
 class Generator:
-    def __init__(self, length, use_upper=True, use_lower=True, use_numbers=True, use_symbols=True): 
+    def __init__(self): 
         # this is stopping my function from working as it is requiring specific attributes, may you move it specifically to your function?
-        self.length = length
-        self.use_upper = use_upper
-        self.use_lower = use_lower
-        self.use_numbers = use_numbers
-        self.use_symbols = use_symbols
-        self.word_list = load_word_list("/eff_large_wordlist.txt")
+        self.length = 0
+        self.use_upper = True
+        self.use_lower = True
+        self.use_numbers = True
+        self.use_symbols = True
+        self.word_list = load_word_list("eff_large_wordlist.txt")
         
-    def generate_password(self):
+    def generate_password(self, length: int) -> str:        
         pool = ""
         if self.use_upper:
             pool += string.ascii_uppercase
@@ -35,14 +35,14 @@ class Generator:
         if not pool:
             raise ValueError("No character sets selected.")
         
-        return "".join(secrets.choice(pool) for _ in range(self.length))
+        return "".join(secrets.choice(pool) for _ in range(length))
 
     def generate_passphrase(self, num_words: int, separator: str = " ") -> str:
         """
         Generates a secure passphrase from the loaded word list.
         """
         if num_words < 3:
-            raise ValueError(f"Number of words must be at least 3, but was {num_words}.")
+            raise ValueError("Number of words must be at least 3.")
 
         if not self.word_list:
             return "Error: Word list is not available."
@@ -52,6 +52,8 @@ class Generator:
         return separator.join(words)
             
 
-# below are for testing purposes
-gen1 = Generator(15, use_upper=True, use_lower=True, use_numbers=True, use_symbols=True)
-print(gen1.generate_password())
+# # below are for testing purposes
+# gen1 = Generator()
+# print(gen1.generate_password(15))
+# gen2 = Generator()
+# print(gen2.generate_passphrase(3))
