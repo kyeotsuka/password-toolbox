@@ -2,7 +2,7 @@ from collections import Counter
 import string
 
 class Password:
-    """A class to represent and analyze a password's properties."""
+    """A class to represent and analyse a password's properties."""
     
     def __init__(self, pw_string: str) -> None:
         if not pw_string:
