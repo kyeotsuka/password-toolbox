@@ -52,8 +52,8 @@ class Generator:
         return separator.join(words)
             
 
-# # below are for testing purposes
-# gen1 = Generator()
-# print(gen1.generate_password(15))
-# gen2 = Generator()
-# print(gen2.generate_passphrase(3))
+# below are for testing purposes
+gen1 = Generator()
+print(gen1.generate_password(15))
+gen2 = Generator()
+print(gen2.generate_passphrase(3))
