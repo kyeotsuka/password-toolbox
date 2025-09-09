@@ -18,6 +18,7 @@ class Password:
         self.number_count = 0
         self.symbol_count = 0
         self.space_count = 0
+        self.unique_char_count = 0
         
         self.analyse()
         
@@ -38,19 +39,12 @@ class Password:
 
     def analyse(self) -> None:
         """Analyses the properties of the password string."""
-        counts = Counter(self.pw_string)
-    
-        # Reset counts to zero before analysing
-        self.alphabet_count = 0
-        self.lowercase_count = 0
-        self.uppercase_count = 0
-        self.number_count = 0
-        self.space_count = 0
-        self.symbol_count = 0
+        counts = Counter(self.pw_string) 
+        
+        # Checks that it isn't just "aaaaaaaa" or something similar
+        self.unique_char_count = len(counts)
 
         for char, count in counts.items():
-            if char.isalpha():
-                self.alphabet_count += count
             if char.islower():
                 self.lowercase_count += count
             elif char.isupper():
@@ -61,3 +55,5 @@ class Password:
                 self.space_count += count
             elif char in string.punctuation:
                 self.symbol_count += count
+                
+        self.alphabet_count = self.lowercase_count + self.uppercase_count

@@ -49,10 +49,3 @@ class Generator:
         words = [secrets.choice(self.word_list) for _ in range(num_words)]
         
         return Password(separator.join(words))
-            
-
-# ### below are for testing purposes
-# gen1 = Generator()
-# print(gen1.generate_password(15))
-# gen2 = Generator()
-# print(gen2.generate_passphrase(3))

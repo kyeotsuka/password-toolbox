@@ -7,7 +7,7 @@ def main():
     generator = Generator()
 
     # 2. Use the tool to create a Password object and save it
-    my_password = generator.generate_password(12)
+    my_password = generator.generate_password(7)
     
     print("--- 1. Generated Password (Strength Untested) ---")
     print(my_password)
@@ -28,3 +28,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
