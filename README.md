@@ -1,6 +1,6 @@
 # Python Password Toolbox
 
-A command-line toolkit for generating secure passwords and analysing their strength based on modern cybersecurity principles. This project demonstrates best practices in Python object-oriented design, secure coding, and adherence to current standards like the NIST Digital Identity Guidelines.
+A command-line toolbox for generating secure passwords and analysing their strength based on modern cyber security principles. This project demonstrates best practices in Python object-oriented design, secure coding, and adherence to current standards like the NIST Digital Identity Guidelines.
 
 ## Features
 
